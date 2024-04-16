@@ -1,10 +1,11 @@
-// counter_widget.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'store.dart';
 import 'actions.dart';
 
 class CounterWidget extends StatelessWidget {
+  const CounterWidget({super.key});
+
  @override
  Widget build(BuildContext context) {
     return StoreProvider<int>(
@@ -12,7 +13,7 @@ class CounterWidget extends StatelessWidget {
       child: MaterialApp(
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Flutter Redux Counter'),
+            title: const Text('Flutter Redux счетчик'),
           ),
           body: Center(
             child: StoreConnector<int, int>(
@@ -20,7 +21,7 @@ class CounterWidget extends StatelessWidget {
               builder: (context, count) {
                 return Text(
                  '$count',
-                 style: Theme.of(context).textTheme.headline4,
+                 style: Theme.of(context).textTheme.headlineMedium,
                 );
               },
             ),
@@ -30,17 +31,17 @@ class CounterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
                 child: FloatingActionButton(
                  onPressed: () => store.dispatch(IncrementAction()),
-                 child: Icon(Icons.add),
+                 child: const Icon(Icons.add),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
                 child: FloatingActionButton(
                  onPressed: () => store.dispatch(DecrementAction()),
-                 child: Icon(Icons.remove),
+                 child: const Icon(Icons.remove),
                 ),
               ),
             ],
